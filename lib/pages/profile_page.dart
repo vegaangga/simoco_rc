@@ -51,7 +51,7 @@ class _ProfilePageState extends State<ProfilePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Add Drop Point'),
+        title: const Text('Settings'),
       centerTitle: true,
       ),
       // backgroundColor: Colors.blue[800],

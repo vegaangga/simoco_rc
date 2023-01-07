@@ -31,11 +31,12 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF0D214F),
+      //backgroundColor: const Color(0xFF0D214F),
+      backgroundColor: Color.fromARGB(255, 255, 255, 255),
       body: SafeArea(
         child: Center(
           child: Image.asset(
-            "assets/images/seamoco.png",
+            "assets/images/logo_inventory_3b.png",
             width: 300.0,
           ),
         ),

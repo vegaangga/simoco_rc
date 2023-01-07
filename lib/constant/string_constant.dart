@@ -1,8 +1,8 @@
 
 class StringConstant {
   // ignore: constant_identifier_names
-  static const baseUrl = "https://93db-103-162-220-14.ap.ngrok.io/api";
-  static const auth = "https://93db-103-162-220-14.ap.ngrok.io/api/v1";
+  static const baseUrl = "https://2463-103-162-220-7.ap.ngrok.io/api";
+  static const auth = "https://2463-103-162-220-7.ap.ngrok.io/api/v1";
 
   // static const _storage = FlutterSecureStorage();
   // static String token = '';

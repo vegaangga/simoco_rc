@@ -3,10 +3,12 @@ import 'package:flutter/services.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:http/http.dart' as http;
 import 'package:dropdown_search/dropdown_search.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:simoco_rc/constant/string_constant.dart';
 import 'package:simoco_rc/model/province.dart';
 import 'package:simoco_rc/pages/droppoint_page.dart';
 import 'package:flutter/material.dart';
+import 'package:simoco_rc/widgets/navbar.dart';
 import 'package:simoco_rc/widgets/themes.dart';
 
 
@@ -25,6 +27,7 @@ class _DroppointAddState extends State<DroppointAdd> {
   final TextEditingController _keterangan = TextEditingController();
 
   String? kodePelabuhan;
+  String? iduser;
 
   bool _isLoading = false;
   FocusNode pelabuhanNode = FocusNode();
@@ -32,8 +35,8 @@ class _DroppointAddState extends State<DroppointAdd> {
   String _scanBarcode = 'Unknown';
 
   Future<void> submit(BuildContext context) async {
-    //  SharedPreferences pref = await SharedPreferences.getInstance();
-    //   kodePelabuhan = await pref.getString("kodePelabuhan");
+     SharedPreferences pref = await SharedPreferences.getInstance();
+      iduser = await pref.getString("iduser");
     // setState(() {
     //   _idTransaksi.text = _scanBarcode;
     // });
@@ -42,13 +45,14 @@ class _DroppointAddState extends State<DroppointAdd> {
           body: ({
             "id_transaksi" : _idTransaksi.text,
             "pelabuhan" : kodePelabuhan,
-            "keterangan" : _keterangan.text
+            "keterangan" : _keterangan.text,
+            "operator": iduser
           }));
           ScaffoldMessenger.of(context)
         .showSnackBar(const SnackBar(content: Text("Berhasil Insert Data")));
-        Navigator.of(context).pushAndRemoveUntil(
+        Navigator.of(context).push(
         MaterialPageRoute(builder: (context)=>const Droppoint()),
-          (route) => false);
+        );
     } else{
       ScaffoldMessenger.of(context)
         .showSnackBar(const SnackBar(content: Text("Blank Value found")));

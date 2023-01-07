@@ -30,10 +30,6 @@ class MyApp extends StatelessWidget {
         routes: {
           'login': (context) => const LoginPage(),
           'ss': (context) => const SplashScreenPage(),
-          // 'register' : (context) => Register(),
-          // 'home' : (context) => const HomePage(),
-          // // 'container':(context) => const DataContainer(),
-          // 'profiles' : (context) => const ProfilePage(),
           'changeEmail' : (context) => const ChangeEmail_page(),
           'changePhone' : (context) => const ChangeTelp_page(),
           'changePassword': (context) => const ChangePassword_page(),

@@ -61,7 +61,7 @@ class Value {
     int? devid;
     DateTime? timeStr;
     double? time;
-    int? tmp1;
+    double? tmp1;
     double? hmd1;
     double? tmp2;
     double? hmd2;
@@ -81,7 +81,7 @@ class Value {
         devid: json["DEVID"],
         timeStr: DateTime.parse(json["TIME_STR"]),
         time: json["TIME"].toDouble(),
-        tmp1: json["TMP1"],
+        tmp1: json["TMP1"].toDouble(),
         hmd1: json["HMD1"].toDouble(),
         tmp2: json["TMP2"].toDouble(),
         hmd2: json["HMD2"].toDouble(),

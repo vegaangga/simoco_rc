@@ -1,7 +1,7 @@
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:simoco_rc/constant/string_constant.dart';
-import 'package:simoco_rc/pages/container_category.dart';
+import 'package:simoco_rc/pages/category_container.dart';
 import 'package:flutter/material.dart';
 import 'package:simoco_rc/pages/profile_page.dart';
 import 'package:simoco_rc/widgets/themes.dart';

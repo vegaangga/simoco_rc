@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:simoco_rc/pages/container_category.dart';
-import 'package:simoco_rc/pages/container_droppoint.dart';
+import 'package:simoco_rc/pages/category_container.dart';
+import 'package:simoco_rc/pages/category_cdroppoint.dart';
+import 'package:simoco_rc/pages/category_kapal.dart';
 import 'package:simoco_rc/pages/droppoint_add.dart';
 import '../pages/profile_page.dart';
 import '../pages/qrcode_page.dart';
@@ -20,7 +21,8 @@ class _NavbarState extends State<Navbar> {
   final List<Widget> screens = [
     const ContainerCategory(),
     const ProfilePage(),
-    ContainerDroppoint(),
+    // ContainerDroppoint(),
+    const KapalDroppoint(),
     const DroppointAdd(),
   ];
 
@@ -111,7 +113,7 @@ class _NavbarState extends State<Navbar> {
                       minWidth: 40,
                       onPressed: () {
                         setState(() {
-                          currentScreen = ContainerDroppoint();
+                          currentScreen = KapalDroppoint();
                           currentTab = 1;
                         });
                       },

@@ -47,12 +47,6 @@ class _LoginPageState extends State<LoginPage> {
               .showSnackBar(const SnackBar(content: Text("Pleas Sign In with Operator Credential")));
               logout();
             } else{
-              //print("Login Token: "+ body["access_token"]);
-            //  ScaffoldMessenger.of(context)
-            //   .showSnackBar(SnackBar(content: Text("Token: ${body['access_token']}"),));
-              // ScaffoldMessenger.of(context)
-              // .showSnackBar(SnackBar(content: Text("Token: ${res['user']['id'].toString()}"),));
-              //setName(res['name']);
                  SharedPreferences pref = await SharedPreferences.getInstance();
                   await pref.setString("login", body['access_token']);
               pageRout(body['access_token'],res['user']['name'],res['user']['id'].toString());
@@ -256,7 +250,7 @@ class _LoginPageState extends State<LoginPage> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      Image.asset('assets/images/seamoco_rc_circle.png',
+                      Image.asset('assets/images/logo_inventory_3b.png',
                       height: 250,
                       width: 250,
                       ),

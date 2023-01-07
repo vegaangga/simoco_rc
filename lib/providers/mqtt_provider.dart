@@ -2,6 +2,7 @@ import 'package:simoco_rc/model/mqtt.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import 'package:simoco_rc/constant/string_constant.dart';
 
 
 class MqttProvider extends ChangeNotifier {
@@ -13,7 +14,7 @@ class MqttProvider extends ChangeNotifier {
 
   //BUAT FUNGSI UNTUK MELAKUKAN REQUEST DATA KE SERVER / API
   Future<List<mqttModel>> getMqtt() async {
-    String url = 'https://edac-103-174-113-10.ap.ngrok.io/api/monitoring/topicid=$_valTopic';
+    String url = '${StringConstant.baseUrl}/monitoring/topicid=$_valTopic';
 
     var response = await http.get(Uri.parse(url));
 

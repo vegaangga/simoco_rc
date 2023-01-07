@@ -1,6 +1,7 @@
 import 'package:simoco_rc/model/dashboard_model.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import 'package:simoco_rc/constant/string_constant.dart';
 
 class ServiceClass{
   int? _valTopic;
@@ -8,7 +9,7 @@ class ServiceClass{
     //String _valTopic = obj.getValue();
     Future<SampleModel> getMqttByTopic() async{
     SampleModel data;
-    var baseUrl = "https://edac-103-174-113-10.ap.ngrok.io/api/monitoring/topicid=$_valTopic";
+    var baseUrl = "${StringConstant.baseUrl}/monitoring/topicid=$_valTopic";
     var response = await http.get(Uri.parse(baseUrl));
     var it = jsonDecode(response.body);
     print(it);

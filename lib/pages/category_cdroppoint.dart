@@ -16,6 +16,7 @@ class ContainerDroppointState extends State<ContainerDroppoint> {
   List<Book> books = [];
   String query = '';
   Timer? debouncer;
+  final BooksApi _get = BooksApi();
 
   @override
   void initState() {
@@ -42,7 +43,7 @@ class ContainerDroppointState extends State<ContainerDroppoint> {
   }
 
   Future init() async {
-    final books = await BooksApi.getContainer(query);
+    final books = await _get.getContainer(query);
 
     setState(() => this.books = books);
   }
@@ -50,7 +51,7 @@ class ContainerDroppointState extends State<ContainerDroppoint> {
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
-          title: const Text("Drop Point"),
+          title: const Text("List Container"),
           centerTitle: true,
         ),
         body: Column(
@@ -104,7 +105,7 @@ class ContainerDroppointState extends State<ContainerDroppoint> {
       );
 
   Future searchBook(String query) async => debounce(() async {
-        final books = await BooksApi.getContainer(query);
+        final books = await _get.getContainer(query);
 
         if (!mounted) return;
 

@@ -1,12 +1,17 @@
 import 'dart:convert';
 
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:simoco_rc/constant/string_constant.dart';
 import 'package:simoco_rc/model/container2_model.dart';
 import 'package:http/http.dart' as http;
 
 class BooksApi {
-  static Future<List<Book>> getContainer(String query) async {
-    final response = await http.get(Uri.parse("${StringConstant.baseUrl}/droppoint"));
+
+  String? id;
+  Future<List<Book>> getContainer(String query) async {
+     SharedPreferences pref = await SharedPreferences.getInstance();
+      id = pref.getString("idKapal");
+    final response = await http.get(Uri.parse("${StringConstant.baseUrl}/kapal/$id/container"));
 
     if (response.statusCode == 200) {
       final List books = json.decode(response.body);
